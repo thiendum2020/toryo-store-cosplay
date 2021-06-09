@@ -1,0 +1,257 @@
+:root {
+    --primary-color: #EE4D2D;
+    --primary-rgba-color: rgb(238, 75, 43);
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --border-color: #dbdbdb;
+    --header-height: 120px;
+    --navbar-height: 30px;
+    --header-body-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/*Responsive*/
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+/*TEMP*/
+
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.667%;
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.333%;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+        opacity: 0;
+    }
+    to {
+        transform: scale(var(--growth-to));
+        opacity: 1;
+    }
+}
+
+/*MODAL*/
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.modal__body {
+    /* width: 400px;
+    height: 500px; */
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    --growth-from: 0.7;
+    --growth-from: 1;
+    animation: growth linear 0.2s;
+}
+
+/*Button style*/
+
+.btn {
+    /* min-width: 124px; */
+    height: 40px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+}
+
+.btn-filter {
+    background-color: var(--white-color);
+    height: 34px;
+}
+
+.btn.btn--active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn.btn--small {
+    min-width: 90px;
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 1.6rem;
+    width: 100%;
+}
+
+.btn--primary:active {
+    transform: translateY(1px);
+}
+
+.btn--primary:hover {
+    background-color: rgba(238, 75, 43, 0.8);
+}
+
+.btn.btn--disabled {
+    cursor: default;
+    background-color: #999;
+}
+
+/* Selection */
+
+.select-input {
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+}
+
+.select-input-icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+.select-input__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 36px;
+    padding: 8px 0;
+    list-style: none;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    margin: 0;
+    display: none;
+    z-index: 1;
+}
+
+.select-input__item {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.select-input__link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.select-input__item:hover .select-input__link {
+    color: var(--primary-color);
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-item {
+    list-style: none;
+    margin: 0 16px;
+}
+
+.pagination-item__active .pagination-item__link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item__active:hover .pagination-item__link {
+    background-color: rgba(238, 75, 43, 0.8);
+    color: var(--white-color);
+}
+
+.pagination-item__link {
+    display: block;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 300;
+    min-width: 40px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
